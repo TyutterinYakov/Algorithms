@@ -97,5 +97,7 @@ int main(void) {
         snowflakes[snowflake_code] = snow;
     }
     identify_identical(snowflakes);
+    free(snow);
+    free(*snowflakes);
     return 0;
 }
