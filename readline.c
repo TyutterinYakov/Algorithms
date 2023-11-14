@@ -107,14 +107,14 @@ int main(void) {
 
 
 
-//FOR JAVA:
+//WITH JAVA:
 /*
 import java.util.*;
 
 public class Main {
 
-    private Set<String> words = new HashSet<>();
-    private Scanner scanner = new Scanner(System.in);
+    private final Set<String> words = new HashSet<>();
+    private final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -137,8 +137,10 @@ public class Main {
             int start = 0;
             int length = word.length();
             for (int i = 0; i <= length; i++) {
-                String substring = word.substring(start, i);
-                if (words.contains(substring) && !(i == length && start == 0)) {
+                String substringPrev = word.substring(start, i);
+                String substringSuf = word.substring(i, length);
+                if (words.contains(substringPrev) && words.contains(substringSuf) &&
+                        !(i == length && start == 0)) {
                     System.out.println(word);
                     break;
                 }
