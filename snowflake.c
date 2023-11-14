@@ -4,8 +4,8 @@
 #define SIZE 100000
 
 int identical_right(int snow1[], int snow2[], int start) {
-
-    for (int i = 0; i < 6; i++) {
+    int i;
+    for (i = 0; i < 6; i++) {
         if (snow1[i] != snow2[(i + start) % 6]) {
             return 0;
         }
@@ -16,8 +16,9 @@ int identical_right(int snow1[], int snow2[], int start) {
 
 int identical_left(int snow1[], int snow2[], int start) {
     int snow_index2;
+    int i;
 
-    for (int i = 0; i < 6; i++) {
+    for (i = 0; i < 6; i++) {
         snow_index2 = start - i;
 
         if (snow_index2 < 0) {
@@ -97,6 +98,7 @@ int main(void) {
         snowflakes[snowflake_code] = snow;
     }
     identify_identical(snowflakes);
+
     free(snow);
     free(*snowflakes);
     return 0;
