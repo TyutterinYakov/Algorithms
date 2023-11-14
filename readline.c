@@ -104,3 +104,50 @@ int main(void) {
     identify_compound_words(words, hash_table, total);
     return 0;
 }
+
+
+
+//FOR JAVA:
+/*
+import java.util.*;
+
+public class Main {
+
+    private Set<String> words = new HashSet<>();
+    private Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Main main = new Main();
+
+        int countWords = main.scanner.nextInt();
+        main.scanner.nextLine();
+
+        System.out.println("Введите " + countWords + " слова");
+        for (int i = 0; i < countWords; i++) {
+            String line = main.scanner.nextLine();
+            main.words.add(line);
+        }
+
+        main.findLines();
+
+    }
+
+    private void findLines() {
+        for (String word : words) {
+            int start = 0;
+            int length = word.length();
+            for (int i = 0; i <= length; i++) {
+                String substring = word.substring(start, i);
+                if (words.contains(substring) && !(i == length && start == 0)) {
+                    System.out.println(word);
+                    break;
+                }
+                if (i == length) {
+                    start++;
+                    i = start;
+                }
+            }
+        }
+    }
+}
+*/
