@@ -32,13 +32,16 @@ int identical_left(int snow1[], int snow2[], int start) {
 
 int are_identical(int snow1[], int snow2[]) {
     int start;
+    int first = snow1[0];
     for (start = 0; start < 6; start++) {
-        if (identical_right(snow1, snow2, start)) {
-            return 1;
+        if (first == snow2[start]) {
+            if (identical_right(snow1, snow2, start)) {
+                return 1;
+            }
+            if (identical_left(snow1, snow2, start)) {
+                return 1;
+            }
         }
-        if (identical_left(snow1, snow2, start)) {
-            return 1;
-        } 
     }
     return 0;
 }
