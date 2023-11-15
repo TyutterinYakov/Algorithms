@@ -46,9 +46,7 @@ int main(void) {
 import java.util.*;
 
 public class Main {
-
     private static final Scanner scanner = new Scanner(System.in);
-
 
     public static void main(String[] args) {
         String input = scanner.nextLine();
@@ -73,10 +71,9 @@ public class Main {
             end--;
         }
 
-        int prefixLength = start;
         int suffixLength = lengthInput - end - 1;
 
-        int total = (prefixLength + 1) - (lengthInput - suffixLength) + 1;
+        int total = start - end + 1;
 
         if (total < 0) {
             total = 0;
@@ -94,6 +91,4 @@ public class Main {
         System.out.println(sb);
     }
 }
-
-
 */
