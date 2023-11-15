@@ -59,36 +59,36 @@ public class Main {
         int lengthInput = input.length();
         int lengthCorrect = correct.length();
 
-        int start = 0;
-        int end = lengthInput - 1;
+        int endPreffix = 0;
+        int startSuffix = lengthInput - 1;
 
 
-        while(start < lengthCorrect && correct.charAt(start) == input.charAt(start)) {
-            start++;
+        while(endPreffix < lengthCorrect && correct.charAt(endPreffix) == input.charAt(endPreffix)) {
+            endPreffix++;
         }
 
-        while (end >= 1 && correct.charAt(end - 1) == input.charAt(end)) {
-            end--;
+        while (startSuffix >= 1 && correct.charAt(startSuffix - 1) == input.charAt(startSuffix)) {
+            startSuffix--;
         }
 
-        int suffixLength = lengthInput - end - 1;
+        int suffixLength = lengthInput - startSuffix - 1;
 
-        int total = start - end + 1;
+        int total = endPreffix - startSuffix + 1;
 
         if (total < 0) {
             total = 0;
         }
         System.out.println(total);
 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < total; i++) {
-            sb.append(i + lengthInput - suffixLength);
-            if (i < total - 1)
-                sb.append(" ");
-            else
-                sb.append("\n");
+        if (total > 0) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(lengthInput - suffixLength);
+            for (int i = 1; i < total; i++) {
+                sb.append(" ").append(i + lengthInput - suffixLength);
+            }
+            sb.append("\n");
+            System.out.println(sb);
         }
-        System.out.println(sb);
     }
 }
 */
